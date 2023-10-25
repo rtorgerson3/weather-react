@@ -1,5 +1,4 @@
 import React from "react";
-import CityWeatherDetails from "./CityWeatherDetails";
 
 export default function CityName() {
   let weatherData = {

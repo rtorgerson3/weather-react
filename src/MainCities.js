@@ -3,20 +3,20 @@ import React from "react";
 export default function MainCities() {
   return (
     <div class="main-cities">
-      <a class="san-diego" target="blank">
+      <a href="www.google.com" class="san-diego" target="blank">
         {" "}
         San Diego{" "}
       </a>
-      <a class="bismarck" target="blank">
+      <a href="www.google.com" class="bismarck" target="blank">
         {" "}
         Bismarck{" "}
       </a>
-      <a class="barcelona" target="blank">
+      <a href="www.google.com" class="barcelona" target="blank">
         {" "}
         Barcelona{" "}
       </a>
-      <a target="blank">
-        <a class="mykolaiv" target="blank">
+      <a href="www.google.com" target="blank">
+        <a href="www.google.com" class="mykolaiv" target="blank">
           {" "}
           Mykolaiv{" "}
         </a>
