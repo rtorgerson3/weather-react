@@ -7,6 +7,7 @@ import CityName from "./CityName";
 import CityWeatherDetails from "./CityWeatherDetails";
 import CityTemperature from "./CityTemperature";
 import DegreesIcon from "./DegreesIcon";
+import WeatherForecast from "./WeatherForecast";
 import Footer from "./Footer";
 
 export default function App() {
@@ -41,6 +42,9 @@ export default function App() {
                 </div>
               </div>
               <div className="row">
+                <div>
+                  <WeatherForecast />
+                </div>
                 <div className="col-md-12 footnote">
                   <Footer />
                 </div>
