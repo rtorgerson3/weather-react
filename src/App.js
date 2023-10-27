@@ -37,7 +37,7 @@ export default function App() {
                   <CityWeatherDetails />
                 </div>
                 <div class="col-md-6 current-temp">
-                  <DegreesIcon />
+                  <DegreesIcon code="10n" />
                   <CityTemperature />
                 </div>
               </div>
