@@ -11,7 +11,7 @@ export default function Weather() {
   const [city, setCity] = useState("");
   const [loaded, setLoaded] = useState(false);
   const [weather, setWeather] = useState({});
-  const [forecast, setForecast] = useState({});
+  const [, setForecast] = useState({});
 
   let apiKey = "0065c92bb38o03d36835f9t248bba38f";
 
