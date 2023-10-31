@@ -12,7 +12,6 @@ export default function Weather() {
   const [city, setCity] = useState("");
   const [loaded, setLoaded] = useState(false);
   const [weather, setWeather] = useState({});
-  const [, setForecast] = useState({});
   const [unit, setUnit] = useState("fahrenheit");
   const [tempNumber, setTempNumber] = useState(0);
 
@@ -85,17 +84,10 @@ export default function Weather() {
     updateTime();
   }
 
-  function displayForecast(response) {
-    let forecast = response.data.daily;
-    setForecast(forecast);
-  }
-
   function handleSearch(event) {
     event.preventDefault();
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
-    let forecastUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
     axios.get(apiUrl).then(displayWeather);
-    axios.get(forecastUrl).then(displayForecast);
   }
 
   function updateCity(event) {
@@ -209,7 +201,7 @@ export default function Weather() {
           </div>
           <div className="row">
             <div>
-              <WeatherForecast />
+              <WeatherForecast city={weather.city} />
             </div>
             <div>
               {" "}
