@@ -12,6 +12,8 @@ export default function Weather() {
   const [loaded, setLoaded] = useState(false);
   const [weather, setWeather] = useState({});
   const [, setForecast] = useState({});
+  const [unit, setUnit] = useState("fahrenheit");
+  const [tempNumber, setTempNumber] = useState(0);
 
   let apiKey = "0065c92bb38o03d36835f9t248bba38f";
 
@@ -49,10 +51,35 @@ export default function Weather() {
       temperature: response.data.temperature.current,
       icon: response.data.condition.icon,
     });
+    setTempNumber(response.data.temperature.current);
   }
 
   function presetSydney(event) {
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Sydney&key=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(displayWeather);
+    updateTime();
+  }
+
+  function presetSanDiego(event) {
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=San&Diego&key=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(displayWeather);
+    updateTime();
+  }
+
+  function presetBismarck(event) {
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Bismarck&key=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(displayWeather);
+    updateTime();
+  }
+
+  function presetBarcelona(event) {
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Barcelona&key=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(displayWeather);
+    updateTime();
+  }
+
+  function presetMykolaiv(event) {
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Mykolaiv&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(displayWeather);
     updateTime();
   }
@@ -74,6 +101,18 @@ export default function Weather() {
     setCity(event.target.value);
   }
 
+  function showCelsius(event) {
+    event.preventDefault();
+    setTempNumber(((weather.temperature - 32) * 5) / 9);
+    setUnit("celsius");
+  }
+
+  function showFahrenheit(event) {
+    event.preventDefault();
+    setTempNumber(weather.temperature);
+    setUnit("fahrenheit");
+  }
+
   if (loaded) {
     return (
       <div className="row">
@@ -81,19 +120,39 @@ export default function Weather() {
           <div className="row">
             <div className="col-md-6">
               <div className="main-cities">
-                <a href="www.google.com" className="san-diego" target="blank">
+                <a
+                  href="/"
+                  className="san-diego"
+                  target="blank"
+                  onClick={presetSanDiego}
+                >
                   {" "}
                   San Diego{" "}
                 </a>
-                <a href="www.google.com" className="bismarck" target="blank">
+                <a
+                  href="/"
+                  className="bismarck"
+                  target="blank"
+                  onClick={presetBismarck}
+                >
                   {" "}
                   Bismarck{" "}
                 </a>
-                <a href="www.google.com" className="barcelona" target="blank">
+                <a
+                  href="/"
+                  className="barcelona"
+                  target="blank"
+                  onClick={presetBarcelona}
+                >
                   {" "}
                   Barcelona{" "}
                 </a>
-                <a href="www.google.com" className="mykolaiv" target="blank">
+                <a
+                  href="/"
+                  className="mykolaiv"
+                  target="blank"
+                  onClick={presetMykolaiv}
+                >
                   {" "}
                   Mykolaiv{" "}
                 </a>
@@ -101,10 +160,21 @@ export default function Weather() {
             </div>
             <div className="col-md-6">
               <div className="temp-scale">
-                <a href="www.google.com" className="active">
+                <a
+                  href="/"
+                  onClick={showFahrenheit}
+                  className={unit === "fahrenheit" ? "active" : ""}
+                >
                   °F{" "}
                 </a>
-                |<a href="www.google.com">°C</a>
+                |
+                <a
+                  href="/"
+                  onClick={showCelsius}
+                  className={unit === "celsius" ? "active" : ""}
+                >
+                  °C
+                </a>
               </div>
             </div>
           </div>
@@ -131,9 +201,9 @@ export default function Weather() {
               <CityName data={weather} />
               <CityWeatherDetails data={weather} />
             </div>
-            <div className="col-md-6 current-temp ">
+            <div className="col-md-6 current-temp">
               <DegreesIcon data={weather} />
-              <CityTemperature data={weather} />
+              <CityTemperature data={tempNumber} />
             </div>
           </div>
           <div className="row">

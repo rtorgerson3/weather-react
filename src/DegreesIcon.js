@@ -28,7 +28,7 @@ export default function DegreesIcon(props) {
     <ReactAnimatedWeather
       icon={codeMapping[props.data?.icon]}
       color="#1e1e1e"
-      size="100"
+      size="90"
       animate={true}
     />
   );

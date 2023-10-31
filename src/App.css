@@ -38,9 +38,11 @@ body {
   text-decoration: none;
   cursor: default;
 }
-.temp-scale .active {
+
+.temp-scale a.active {
   color: black;
 }
+
 .search-box {
   margin-left: 30px;
   width: 300px;
@@ -73,7 +75,7 @@ body {
   padding-top: 20px;
 }
 
-#current-temp-icon {
+.current-temp-icon {
   object-fit: cover;
   width: 150px;
   height: 150px;
