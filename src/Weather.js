@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import axios from "axios";
 import CityName from "./CityName";
@@ -61,7 +62,7 @@ export default function Weather() {
   }
 
   function presetSanDiego(event) {
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=San&Diego&key=${apiKey}&units=imperial`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=San%20Diego&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(displayWeather);
     updateTime();
   }
@@ -121,7 +122,7 @@ export default function Weather() {
             <div className="col-md-6">
               <div className="main-cities">
                 <a
-                  href="/"
+                  href="#"
                   className="san-diego"
                   target="blank"
                   onClick={presetSanDiego}
@@ -130,7 +131,7 @@ export default function Weather() {
                   San Diego{" "}
                 </a>
                 <a
-                  href="/"
+                  href="#"
                   className="bismarck"
                   target="blank"
                   onClick={presetBismarck}
@@ -139,7 +140,7 @@ export default function Weather() {
                   Bismarck{" "}
                 </a>
                 <a
-                  href="/"
+                  href="#"
                   className="barcelona"
                   target="blank"
                   onClick={presetBarcelona}
@@ -148,7 +149,7 @@ export default function Weather() {
                   Barcelona{" "}
                 </a>
                 <a
-                  href="/"
+                  href="#"
                   className="mykolaiv"
                   target="blank"
                   onClick={presetMykolaiv}
@@ -202,7 +203,7 @@ export default function Weather() {
               <CityWeatherDetails data={weather} />
             </div>
             <div className="col-md-6 current-temp">
-              <DegreesIcon data={weather} />
+              <DegreesIcon data={weather} size={80} />
               <CityTemperature data={tempNumber} />
             </div>
           </div>

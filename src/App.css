@@ -45,8 +45,13 @@ body {
 
 .search-box {
   margin-left: 30px;
+  margin-right: 4px;
   width: 300px;
   height: 30px;
+}
+
+.search-button {
+  margin-right: 4px;
 }
 
 .city-information h2 {
