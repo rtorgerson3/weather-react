@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import React, { useState, useEffect } from "react";
 import "./WeatherForecast.css";
 import axios from "axios";
@@ -28,6 +27,8 @@ export default function WeatherForecast(props) {
                   <WeatherForecastDay data={dailyForecast} />
                 </div>
               );
+            } else {
+              return null;
             }
           })}
         </div>
