@@ -90,8 +90,20 @@ export default function Weather() {
     axios.get(apiUrl).then(displayWeather);
   }
 
+  function currentLocation(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(displayWeather);
+    updateTime();
+  }
+
   function updateCity(event) {
     setCity(event.target.value);
+  }
+
+  function getPosition(event) {
+    navigator.geolocation.getCurrentPosition(currentLocation);
   }
 
   function showCelsius(event) {
@@ -185,6 +197,7 @@ export default function Weather() {
                   className="current-location-button"
                   type="submit"
                   value="📍"
+                  onClick={getPosition}
                 />
               </form>
             </div>
