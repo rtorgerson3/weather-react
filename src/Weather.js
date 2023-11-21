@@ -125,39 +125,19 @@ export default function Weather() {
           <div className="row">
             <div className="col-md-6">
               <div className="main-cities">
-                <a
-                  href="#"
-                  className="san-diego"
-                  target="blank"
-                  onClick={presetSanDiego}
-                >
+                <a href="#" className="san-diego" onClick={presetSanDiego}>
                   {" "}
                   San Diego{" "}
                 </a>
-                <a
-                  href="#"
-                  className="bismarck"
-                  target="blank"
-                  onClick={presetBismarck}
-                >
+                <a href="#" className="bismarck" onClick={presetBismarck}>
                   {" "}
                   Bismarck{" "}
                 </a>
-                <a
-                  href="#"
-                  className="barcelona"
-                  target="blank"
-                  onClick={presetBarcelona}
-                >
+                <a href="#" className="barcelona" onClick={presetBarcelona}>
                   {" "}
                   Barcelona{" "}
                 </a>
-                <a
-                  href="#"
-                  className="mykolaiv"
-                  target="blank"
-                  onClick={presetMykolaiv}
-                >
+                <a href="#" className="mykolaiv" onClick={presetMykolaiv}>
                   {" "}
                   Mykolaiv{" "}
                 </a>
